@@ -19,3 +19,14 @@ class Dollar:
             multiplier (int): 乗数
         """
         return Dollar(self.amount * multiplier)
+
+    def equals(self, object: "Dollar") -> bool:
+        """オブジェクトが等価か確認する.
+
+        Args:
+            object (Dollar): 比較オブジェクト
+
+        Returns:
+            bool: オブジェクトが等価の場合は `True` を返す. それ以外は `False` を返す.
+        """
+        return self.amount == object.amount
