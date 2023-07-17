@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 88 # 1行の長さ
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | venv
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+# isort を black の設定に合わせる
+profile = "black"
+
+[tool.bandit]
+exclude_dirs = ["tests"]

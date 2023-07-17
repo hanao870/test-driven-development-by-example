@@ -1,0 +1,47 @@
+{
+    "name": "Python Development Environment",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "/bin/bash"
+            }
+        },
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.languageServer": "Default",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.linting.flake8Args": [
+            "--ignore=E501",
+            "--per-file-ignores=__init__.py:F401"
+        ],
+        "python.linting.mypyEnabled": true,
+        "python.linting.mypyArgs": [
+            "--follow-imports=silent",
+            "--ignore-missing-imports",
+            "--show-column-numbers",
+            "--no-pretty",
+            "--strict"
+        ],
+        "python.linting.banditEnabled": true,
+        "python.linting.pydocstyleEnabled": true,
+        "python.linting.lintOnSave": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "DavidAnson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "njpwerner.autodocstring",
+        "oderwat.indent-rainbow"
+    ],
+    "postCreateCommand": "sh .devcontainer/postCreateCommand.sh"
+}
