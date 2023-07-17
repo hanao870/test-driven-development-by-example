@@ -10,7 +10,7 @@ class Dollar:
         Args:
             amount (int): 金額(USD)
         """
-        self.amount = amount
+        self.__amount = amount
 
     def times(self, multiplier: int) -> "Dollar":
         """乗数の金額を返す.
@@ -18,15 +18,18 @@ class Dollar:
         Args:
             multiplier (int): 乗数
         """
-        return Dollar(self.amount * multiplier)
+        return Dollar(self.__amount * multiplier)
 
-    def equals(self, object: "Dollar") -> bool:
+    def __eq__(self, __value: object) -> bool:
         """オブジェクトが等価か確認する.
 
         Args:
-            object (Dollar): 比較オブジェクト
+            __value (object): 比較オブジェクト
 
         Returns:
             bool: オブジェクトが等価の場合は `True` を返す. それ以外は `False` を返す.
         """
-        return self.amount == object.amount
+        if not isinstance(__value, Dollar):
+            return False
+
+        return self.__amount == __value.__amount
